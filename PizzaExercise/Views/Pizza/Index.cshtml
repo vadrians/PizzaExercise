@@ -1,0 +1,57 @@
+﻿@model PizzaExercise.Models.PizzaStatisticViewModel
+@{
+    ViewBag.Title = "Index";
+    var ranking = 0;
+}
+
+
+<link href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.datatables.net/responsive/2.2.0/css/responsive.bootstrap.min.css" rel="stylesheet">
+
+
+<h1>Pizzas Total: @Model.PizzasCount</h1>
+
+
+<table class="table table-striped table-bordered table-hover dataTable no-footer dtr-inline">
+    <thead>
+        <tr>
+            <th>Ranking</th>
+            <th>Toppings</th>
+            <th>Orders</th>
+        </tr>
+    </thead>
+    <tbody>
+        
+        @foreach (var order in Model.Orders)
+        {
+            ranking++;
+            <tr>
+                <td>@ranking</td>
+                <td>@string.Join(", ", order.Pizza.Toppings)</td>
+                <td>@order.Total</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@section Scripts{
+    <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js"></script>
+<script src="https://cdn.datatables.net/responsive/2.2.0/js/responsive.bootstrap.min.js"></script>
+
+    <script>
+        var Pizza = Pizza || {};
+
+        Pizza.Statistics = (function ($) {
+
+            function init() {
+                $('table').DataTable({
+                    pageLength: 25
+                });
+            }
+
+            init();
+
+        })(jQuery);
+    </script>
+    }

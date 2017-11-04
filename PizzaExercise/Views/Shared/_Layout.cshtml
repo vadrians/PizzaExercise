@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @*@Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")*@
+
+    <link href="~/Content/Theme/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- MetisMenu CSS -->
+    <link href="~/Content/Theme/vendor/metisMenu/metisMenu.css" rel="stylesheet" />
+    <!-- Custom CSS -->
+    <link href="~/Content/Theme/dist/css/sb-admin-2.css" rel="stylesheet">
+
+    <!-- Morris Charts CSS -->
+    <link href="~/Content/Theme/vendor/morrisjs/morris.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="~/Content/Theme/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+</head>
+<body>
+    <div id="wrapper">
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="@Url.Action(nameof(PizzaExercise.Controllers.HomeController.Contact), "Home")">VICTOR SALAZAR - Pizza Exercise</a>
+            </div>
+            <!-- /.navbar-header -->
+
+            <div class="navbar-default sidebar" role="navigation">
+                <div class="sidebar-nav navbar-collapse">
+                    <ul class="nav" id="side-menu">                       
+                        <li>
+                            <a href="@Url.Action(nameof(PizzaExercise.Controllers.PizzaController.Index), "Pizza")"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                            <a href="@Url.Action(nameof(PizzaExercise.Controllers.HomeController.Contact), "Home")"><i class="fa fa-user fa-fw"></i> Victor Salazar</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- /.sidebar-collapse -->
+            </div>
+            <!-- /.navbar-static-side -->
+        </nav>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        </footer>
+    </div>
+
+    @*@Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")*@
+
+    <!-- jQuery -->
+    <script src="~/Content/Theme/vendor/jquery/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="~/Content/Theme/vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <script src="~/Content/Theme/vendor/metisMenu/metisMenu.js"></script>
+
+    <!-- Morris Charts JavaScript -->
+    <script src="~/Content/Theme/vendor/raphael/raphael.min.js"></script>
+    <script src="~/Content/Theme/vendor/morrisjs/morris.min.js"></script>
+    <script src="~/Content/Theme/data/morris-data.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="~/Content/Theme/dist/js/sb-admin-2.js"></script>
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>
